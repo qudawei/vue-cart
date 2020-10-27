@@ -1,15 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <el-container>
+      <el-header>
+        <el-menu mode="horizontal">
+          <el-menu-item index="1" width="50px">
+            <img width="50px" src="@/assets/logo.png" alt="">
+          </el-menu-item>
+          <el-menu-item index="2">
+            <router-link to="/">
+              首页
+            </router-link>
+          </el-menu-item>
+          <el-menu-item index="3" style="float:right">
+            <router-link to="/cart">
+              <i class="el-icon-shopping-cart-full" ></i>
+            </router-link>
+          </el-menu-item>
+        </el-menu>
+      </el-header>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
+    <h1>{{welcomeText}}</h1>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      welcomeText:"hello vue cart",
+    }
+  },
+  methods:{
   }
 }
 </script>
